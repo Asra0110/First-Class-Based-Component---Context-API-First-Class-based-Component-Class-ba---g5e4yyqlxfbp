@@ -1,36 +1,25 @@
-import React from 'react'
-import '../styles/App.css';
-
+import React from "react";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
-  }
-
-  componentDidMount() {
-    this.timerID = setInterval(()=>{
-         this.tick()
-    },1000);
-  }
-
-  tick() {
-    this.setState({
-      date: new Date()
-    });
-    
-  }
-
+  state = {
+    name: "John Doe",
+    enrollmentNo: "12345678",
+    age: 34
+  };
+  // add () {
+  //   setState({ age: age + 1 })
+  // }
   render() {
     return (
-      <div id='main'>
-        <h1>Welcome to Newton School</h1>
-        <div id='timer'>{this.state.date.toLocaleTimeString()}</div>
-      </div>
-    );
+      <>
+        <h1>Hello, my name is {this.state.name}</h1>
+        <p>
+          I am {this.state.age} years old and my enrollment no is {this.state.enrollmentNo}
+        </p>
+        <button onClick={()=>this.setState({age:this.state.age+1})}>Increment</button>
+      </>
+    )
   }
 }
-
-
 
 export default App;
